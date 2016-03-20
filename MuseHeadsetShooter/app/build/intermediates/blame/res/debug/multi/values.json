@@ -11,7 +11,14 @@
                     "endOffset": 108
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\dimens.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 89,
+                        "endColumn": 57,
+                        "endOffset": 142
+                    }
                 }
             },
             {
@@ -23,7 +30,14 @@
                     "endOffset": 164
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\dimens.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 147,
+                        "endColumn": 55,
+                        "endOffset": 198
+                    }
                 }
             },
             {
@@ -35,7 +49,14 @@
                     "endOffset": 209
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\dimens.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 250,
+                        "endColumn": 44,
+                        "endOffset": 290
+                    }
                 }
             },
             {
@@ -66,7 +87,14 @@
                     "endOffset": 310
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 490,
+                        "endColumn": 53,
+                        "endOffset": 539
+                    }
                 }
             },
             {
@@ -78,7 +106,14 @@
                     "endOffset": 363
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 162,
+                        "endColumn": 52,
+                        "endOffset": 210
+                    }
                 }
             },
             {
@@ -90,7 +125,14 @@
                     "endOffset": 416
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 56,
+                        "endColumn": 52,
+                        "endOffset": 104
+                    }
                 }
             },
             {
@@ -102,7 +144,14 @@
                     "endOffset": 468
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 635,
+                        "endColumn": 51,
+                        "endOffset": 682
+                    }
                 }
             },
             {
@@ -114,7 +163,14 @@
                     "endOffset": 512
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 215,
+                        "endColumn": 43,
+                        "endOffset": 254
+                    }
                 }
             },
             {
@@ -126,7 +182,14 @@
                     "endOffset": 562
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 313,
+                        "endColumn": 49,
+                        "endOffset": 358
+                    }
                 }
             },
             {
@@ -138,7 +201,14 @@
                     "endOffset": 600
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 791,
+                        "endColumn": 37,
+                        "endOffset": 824
+                    }
                 }
             },
             {
@@ -150,7 +220,14 @@
                     "endOffset": 642
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 448,
+                        "endColumn": 41,
+                        "endOffset": 485
+                    }
                 }
             },
             {
@@ -162,7 +239,14 @@
                     "endOffset": 695
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 109,
+                        "endColumn": 52,
+                        "endOffset": 157
+                    }
                 }
             },
             {
@@ -174,7 +258,14 @@
                     "endOffset": 736
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 407,
+                        "endColumn": 40,
+                        "endOffset": 443
+                    }
                 }
             },
             {
@@ -186,7 +277,14 @@
                     "endOffset": 793
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 687,
+                        "endColumn": 56,
+                        "endOffset": 739
+                    }
                 }
             },
             {
@@ -198,7 +296,14 @@
                     "endOffset": 841
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 829,
+                        "endColumn": 47,
+                        "endOffset": 872
+                    }
                 }
             },
             {
@@ -210,7 +315,14 @@
                     "endOffset": 888
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 744,
+                        "endColumn": 46,
+                        "endOffset": 786
+                    }
                 }
             },
             {
@@ -222,7 +334,14 @@
                     "endOffset": 932
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 363,
+                        "endColumn": 43,
+                        "endOffset": 402
+                    }
                 }
             },
             {
@@ -234,7 +353,14 @@
                     "endOffset": 986
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 259,
+                        "endColumn": 53,
+                        "endOffset": 308
+                    }
                 }
             },
             {
@@ -246,7 +372,14 @@
                     "endOffset": 1032
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 589,
+                        "endColumn": 45,
+                        "endOffset": 630
+                    }
                 }
             },
             {
@@ -258,7 +391,14 @@
                     "endOffset": 1077
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 544,
+                        "endColumn": 44,
+                        "endOffset": 584
+                    }
                 }
             },
             {
@@ -271,7 +411,15 @@
                     "endOffset": 1368
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\styles.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 186,
+                        "endLine": 12,
+                        "endColumn": 12,
+                        "endOffset": 472
+                    }
                 }
             },
             {
@@ -284,7 +432,15 @@
                     "endOffset": 1528
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\styles.xml"
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 510,
+                        "endLine": 17,
+                        "endColumn": 12,
+                        "endOffset": 665
+                    }
                 }
             }
         ]

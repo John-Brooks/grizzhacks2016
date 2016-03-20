@@ -48,6 +48,11 @@ class Muse_t{
     public double dFBTilt;
     public boolean bJawClench;
     public double dConcentration;
+    public boolean bSTSFirstTime = true;
+    public boolean bFBFirstTime = true;
+    public double dSTSOffset = 0;
+    public double dFBOffset = 0;
+
 
     public Muse_t ()
     {
@@ -56,6 +61,15 @@ class Muse_t{
         bJawClench = false;
         dConcentration = .5;
     }
+
+    public double getCalibratedSTS(){
+        return (dSTSTilt - dSTSOffset);
+    }
+    public double getCalibratedFB(){
+        return (dFBTilt - dFBOffset);
+    }
+
+
 
 };
 
@@ -165,10 +179,20 @@ public class core_t {
 
     public void updateMuseSTSTilt(double dTiltSideToSide)
     {
+        if(muse.bSTSFirstTime)
+        {
+            muse.dSTSOffset = dTiltSideToSide;
+            muse.bSTSFirstTime = false;
+        }
         muse.dSTSTilt = dTiltSideToSide;
     }
     public void updateMuseFBTilt(double dTiltForwardBackward)
     {
+        if(muse.bFBFirstTime)
+        {
+            muse.bFBFirstTime = false;
+            muse.dFBOffset = dTiltForwardBackward;
+        }
         muse.dFBTilt = dTiltForwardBackward;
     }
     public void updateMuseJawClench(boolean bJawClench)
@@ -245,19 +269,29 @@ public class core_t {
 
         double dOldX, dNewX, dOldY, dNewY;
 
-        dNewX = Math.cos(dThisTimePosAsRadian) * (dRadius * muse.dConcentration);
-        dOldX = Math.cos(dLastTimePosAsRadian) * (dRadius * muse.dConcentration);
 
-        dNewY = Math.sin(dThisTimePosAsRadian) * (dRadius * muse.dConcentration);
-        dOldY = Math.sin(dLastTimePosAsRadian) * (dRadius * muse.dConcentration);
+        if(muse.dConcentration > 0) {
+            dNewX = Math.cos(dThisTimePosAsRadian) * (dRadius * muse.dConcentration);
+            dOldX = Math.cos(dLastTimePosAsRadian) * (dRadius * muse.dConcentration);
+
+            dNewY = Math.sin(dThisTimePosAsRadian) * (dRadius * muse.dConcentration);
+            dOldY = Math.sin(dLastTimePosAsRadian) * (dRadius * muse.dConcentration);
+        }
+        else
+        {
+            dOldX = 0;
+            dOldY = 0;
+            dNewX = 0;
+            dNewY = 0;
+        }
 
         double swayXTranslation = dNewX - dOldX;
         double swayYTranslation = dNewY - dOldY;
 
         //***************Accelerometer Logic**********************
         long lTimeDifference = lTimeNow - lLastTime;
-        double accelXTranslation = STSTILTCONST * muse.dSTSTilt * lTimeDifference;
-        double accelYTranslation = FBTILTCONST * muse.dFBTilt * lTimeDifference;
+        double accelXTranslation = STSTILTCONST * muse.getCalibratedSTS() * lTimeDifference;
+        double accelYTranslation = FBTILTCONST * muse.getCalibratedFB() * lTimeDifference;
 
         //***************Apply the change**********************
 
