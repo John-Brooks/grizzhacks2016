@@ -128,7 +128,8 @@ public class core_t {
     //public members
     public boolean bShotResultWaiting = false;
     public long lLastHitScore;
-    public boolean bGameRunning = true;
+    public boolean bGameOver = false;
+    public long lGameTimeRemaining = 60000;
 
     public core_t(Rect rScreenIn, Rect rTarget)
     {
@@ -143,6 +144,12 @@ public class core_t {
     public void run()
     {
         long lCurrentSystemTime = System.currentTimeMillis();
+        if(lCurrentSystemTime - lGameStartTime > iGameTimeSeconds * 1000)
+            bGameOver = true;
+
+        if(bGameOver)
+
+
         if(bCurrentlyClenched && (lCurrentSystemTime - lLastClenchTime) > 1000) {
             muse.bJawClench = false;
             bCurrentlyClenched = false;

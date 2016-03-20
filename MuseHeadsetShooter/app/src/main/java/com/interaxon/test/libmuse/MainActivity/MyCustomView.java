@@ -55,7 +55,6 @@ public class MyCustomView extends View {
                 dTarget = res.getDrawable(R.drawable.target);
 
                 bFirstDraw = false;
-
             }
 
             core.run(); //tell the core to process the latest information
