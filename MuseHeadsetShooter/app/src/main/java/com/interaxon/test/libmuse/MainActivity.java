@@ -9,12 +9,20 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
 
+import android.content.Context;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.graphics.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -49,6 +57,8 @@ import com.interaxon.libmuse.MuseVersion;
 import org.w3c.dom.Text;
 
 
+import com.interaxon.test.libmuse.core_t;
+
 
 /**
  * In this simple example MainActivity implements 2 MuseHeadband listeners
@@ -79,6 +89,43 @@ public class MainActivity extends Activity implements OnClickListener {
      * Connection listener updates UI with new connection status and logs it.
      */
     public View view;
+    private core_t core;
+    Executor executor;
+
+    public class MyView extends View{
+        private Canvas offscreen;
+
+        public MyView(Context context, AttributeSet attrs, int defStyle) {
+            super(context, attrs, defStyle);
+        }
+
+        public MyView(Context context, AttributeSet attrs) {
+            super(context, attrs);
+        }
+
+        public MyView(Context context) {
+            super(context);
+        }
+
+        @Override
+        protected void onDraw(Canvas canvas) {
+            //We want the superclass to draw directly to the offscreen canvas so that we don't get an infinitely deep recursive call
+            if(canvas==offscreen){
+                super.onDraw(offscreen);
+            }
+            else{
+                //Our offscreen image uses the dimensions of the view rather than the canvas
+                Bitmap bitmap=Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+                offscreen=new Canvas(bitmap);
+                super.draw(offscreen);
+                //Create paint to draw effect
+                Paint p=new Paint();
+                p.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DARKEN));
+                //Draw on the canvas. Fortunately, this class uses relative coordinates so that we don't have to worry about where this View is actually positioned.
+                canvas.drawBitmap(bitmap, 0, 0, p);
+            }
+        }
+    }
 
     class ConnectionListener extends MuseConnectionListener {
 
@@ -165,7 +212,10 @@ public class MainActivity extends Activity implements OnClickListener {
                     break;
                 default:
                     break;
+
+
             }
+
         }
 
         @Override
@@ -204,6 +254,8 @@ public class MainActivity extends Activity implements OnClickListener {
                                     "%6.2f", data.get(Accelerometer.LEFT_RIGHT.ordinal())));
                             xvalue.setText(String.format(
                                     "%6.2f", data.get(Accelerometer.FORWARD_BACKWARD.ordinal())));
+                            core.updateMuseFBTilt(data.get(Accelerometer.FORWARD_BACKWARD.ordinal()));
+                            core.updateMuseSTSTilt(data.get(Accelerometer.LEFT_RIGHT.ordinal()));
                         }
                     }
                 });
@@ -312,6 +364,20 @@ public class MainActivity extends Activity implements OnClickListener {
         Log.i("Muse Headband", "libmuse version=" + LibMuseVersion.SDK_VERSION);
         fileWriter.addAnnotationString(1, "MainActivity onCreate");
         dataListener.setFileWriter(fileWriter);
+        //instantiate the core
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+        Rect rectScreen = new Rect(0, 0, width, height);
+        Rect rectTarget = new Rect(0, 0, 100, 100);
+        core = new core_t(rectScreen, rectTarget);
+    }
+    @Override
+    public void onDraw(View v)
+    {
+
     }
 
     @Override

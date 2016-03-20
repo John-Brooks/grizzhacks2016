@@ -4,6 +4,7 @@ package com.interaxon.test.libmuse; /**
 
 import java.util.*;
 import java.lang.System;
+import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.locks.Lock;
 import android.graphics.Rect;
 
@@ -39,11 +40,16 @@ class Gun_t{
 class Muse_t{
     public double dSTSTilt;
     public double dFBTilt;
-
     public boolean bJawClench;
-    public boolean bBlink;
-
     public double dConcentration;
+
+    public Muse_t ()
+    {
+        dSTSTilt = 0;
+        dFBTilt = 0;
+        bJawClench = false;
+        dConcentration = .5;
+    }
 
 };
 
@@ -91,7 +97,7 @@ class Target{
 
 }
 
-public class core_t implements Runnable {
+public class core_t {
     //Constants
     final static double FBTILTCONST = 1.0;
     final static double STSTILTCONST = 1.0;
@@ -112,7 +118,6 @@ public class core_t implements Runnable {
     Rect rScreen;
 
     //public members
-    public Lock lock;
     public boolean bShotResultWaiting = false;
     public long lLastHitScore;
     public boolean bGameRunning = true;
@@ -127,39 +132,28 @@ public class core_t implements Runnable {
         gun = new Gun_t(rScreenIn);
     }
 
-    @Override
     public void run()
     {
-        long lCurrentSystemTime;
-        while(true) {
-
-            lock.lock();
-            if(bGameRunning) {
-                lCurrentSystemTime = System.currentTimeMillis();
-                checkForGunShot();
-                updateGunPosition(lLastUpdateTime, lCurrentSystemTime);
-
-                if(lCurrentSystemTime - lGameStartTime > (iGameTimeSeconds * 1000))
-                {
-                    bGameRunning = false; //game over
-                }
-            }
-            lock.unlock();
-            try {
-                Thread.sleep(5);
-            }
-            catch(Exception e) {
-                //do nothing
-            }
-        }
+        long lCurrentSystemTime = System.currentTimeMillis();
+        checkForGunShot();
+        updateGunPosition(lLastUpdateTime, lCurrentSystemTime);
     }
 
-    public void updateMuse(int iTiltSideToSide, int iTiltForwardBackward, boolean bJawClench, double dConcentration)
+    public void updateMuseSTSTilt(double dTiltSideToSide)
+    {
+        muse.dSTSTilt = dTiltSideToSide;
+    }
+    public void updateMuseFBTilt(double dTiltForwardBackward)
+    {
+        muse.dFBTilt = dTiltForwardBackward;
+    }
+    public void updateMuseJawClench(boolean bJawClench)
+    {
+        muse.bJawClench = bJawClench;
+    }
+    public void updateMuseConcentration(double dConcentration)
     {
         muse.dConcentration = dConcentration;
-        muse.dFBTilt = iTiltForwardBackward;
-        muse.dSTSTilt = iTiltSideToSide;
-        muse.bJawClench = bJawClench;
     }
 
     private boolean checkForGunShot()
