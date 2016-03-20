@@ -89,6 +89,7 @@ public class MainActivity extends Activity implements OnClickListener {
      * Connection listener updates UI with new connection status and logs it.
      */
     public View view;
+    public double Concentration;
     private core_t core;
     Executor executor;
 
@@ -234,10 +235,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
                         String tag = (String) view.getTag();
                         TextView acc_x = (TextView) findViewById(R.id.acc_x);
-                        TextView xvalue = (TextView) findViewById(R.id.xValue);
+                        TextView yvalue = (TextView) findViewById(R.id.yValue);
                         TextView acc_y = (TextView) findViewById(R.id.acc_y);
                         TextView acc_z = (TextView) findViewById(R.id.acc_z);
-                        TextView yvalue = (TextView) findViewById(R.id.yValue);
+                        TextView xvalue = (TextView) findViewById(R.id.xValue);
 
                         if(tag.equals("main")) {
                             acc_x.setText(String.format(
@@ -250,12 +251,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
                         if (tag.equals("gamemode")){
-                            yvalue.setText(String.format(
-                                    "%6.2f", data.get(Accelerometer.LEFT_RIGHT.ordinal())));
                             xvalue.setText(String.format(
+                                    "%6.2f", data.get(Accelerometer.LEFT_RIGHT.ordinal())));
+                            yvalue.setText(String.format(
                                     "%6.2f", data.get(Accelerometer.FORWARD_BACKWARD.ordinal())));
-                            core.updateMuseFBTilt(data.get(Accelerometer.FORWARD_BACKWARD.ordinal()));
-                            core.updateMuseSTSTilt(data.get(Accelerometer.LEFT_RIGHT.ordinal()));
                         }
                     }
                 });
@@ -268,10 +267,10 @@ public class MainActivity extends Activity implements OnClickListener {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                         TextView tp9 = (TextView) findViewById(R.id.eeg_tp9);
-                         TextView fp1 = (TextView) findViewById(R.id.eeg_fp1);
-                         TextView fp2 = (TextView) findViewById(R.id.eeg_fp2);
-                         TextView tp10 = (TextView) findViewById(R.id.eeg_tp10);
+                        TextView tp9 = (TextView) findViewById(R.id.eeg_tp9);
+                        TextView fp1 = (TextView) findViewById(R.id.eeg_fp1);
+                        TextView fp2 = (TextView) findViewById(R.id.eeg_fp2);
+                        TextView tp10 = (TextView) findViewById(R.id.eeg_tp10);
                         String tag = (String) view.getTag();
                         if(tag.equals("main")) {
                             tp9.setText(String.format(
@@ -294,10 +293,19 @@ public class MainActivity extends Activity implements OnClickListener {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                         TextView elem1 = (TextView) findViewById(R.id.elem1);
-                         TextView elem2 = (TextView) findViewById(R.id.elem2);
-                         TextView elem3 = (TextView) findViewById(R.id.elem3);
-                         TextView elem4 = (TextView) findViewById(R.id.elem4);
+                        TextView elem1 = (TextView) findViewById(R.id.elem1);
+                        TextView elem2 = (TextView) findViewById(R.id.elem2);
+                        TextView elem3 = (TextView) findViewById(R.id.elem3);
+                        TextView elem4 = (TextView) findViewById(R.id.elem4);
+                        TextView convalue = (TextView) findViewById(R.id.convalue);
+
+                        double Con1 = data.get(Eeg.TP9.ordinal());
+                        double Con2 = data.get(Eeg.TP9.ordinal());
+                        double Con3 = data.get(Eeg.TP9.ordinal());
+                        double Con4 = data.get(Eeg.TP9.ordinal());
+
+                        Concentration = (Con1+Con2+Con3+Con4)/4;
+
                         String tag = (String) view.getTag();
                         if (tag.equals("main")){
                             elem1.setText(String.format(
@@ -308,6 +316,10 @@ public class MainActivity extends Activity implements OnClickListener {
                                     "%6.2f", data.get(Eeg.FP2.ordinal())));
                             elem4.setText(String.format(
                                     "%6.2f", data.get(Eeg.TP10.ordinal())));
+                        }
+
+                        if(tag.equals("gamemode")){
+                            convalue.setText(String.format("%6.2f", Concentration));
                         }
                     }
                 });

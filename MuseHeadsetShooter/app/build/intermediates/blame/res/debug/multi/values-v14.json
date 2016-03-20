@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\values-v14\\values-v14.xml",
+        "outputFile": "C:\\Users\\Johnson\\Documents\\GitHub\\grizzhacks2016\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -12,14 +12,14 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "C:\\Users\\Johnson\\Documents\\GitHub\\grizzhacks2016\\MuseHeadsetShooter\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 220,
+                        "startOffset": 227,
                         "endLine": 9,
                         "endColumn": 12,
-                        "endOffset": 366
+                        "endOffset": 375
                     }
                 }
             }
@@ -39,6 +39,32 @@
                 },
                 "from": {
                     "file": "C:\\TestLibMuseAndroid\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 220,
+                        "endLine": 9,
+                        "endColumn": 12,
+                        "endOffset": 366
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\values-v14\\values-v14.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 4,
+                    "endColumn": 12,
+                    "endOffset": 201
+                },
+                "from": {
+                    "file": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,

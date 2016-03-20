@@ -6,5 +6,9 @@
     {
         "merged": "C:\\TestLibMuseAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
         "source": "C:\\TestLibMuseAndroid\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Johnson\\Documents\\GitHub\\grizzhacks2016\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Johnson\\Documents\\GitHub\\grizzhacks2016\\MuseHeadsetShooter\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
     }
 ]

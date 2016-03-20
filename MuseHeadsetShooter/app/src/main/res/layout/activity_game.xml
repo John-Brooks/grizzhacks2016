@@ -25,7 +25,7 @@
         android:text="X: "
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/ACCLabel"
-        android:layout_marginStart="35dp" />
+        android:layout_marginStart="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
         android:id="@+id/yLabel"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/xValue"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="20dp"
         android:text="Y: "/>
 
     <TextView
@@ -50,6 +50,23 @@
         android:id="@+id/yValue"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/yLabel"
+        android:text="0"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ConAve"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/yValue"
+        android:layout_marginLeft="20dp"
+        android:text="Conc: "/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/convalue"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/ConAve"
         android:text="0"/>
 
 
