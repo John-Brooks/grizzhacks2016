@@ -24,10 +24,17 @@ public class MyCustomView extends View {
     Drawable dCrosshair;
     Drawable dTarget;
     Bitmap bCrosshair;
+    Paint paintLastScore = new Paint();
+    Paint paintHighScore = new Paint();
 
 
     public MyCustomView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        paintLastScore.setColor(Color.BLACK);
+        paintLastScore.setTextSize(paintLastScore.getTextSize() * 100);
+
+        //paintHighScore.setColor(Color.RED);
+        //paintHighScore.setTextSize(paintHighScore.getTextSize() * 100);
     }
 
     public MyCustomView(Context context, AttributeSet attrs) {
@@ -57,10 +64,11 @@ public class MyCustomView extends View {
                 bFirstDraw = false;
             }
 
+            if(core.lLastHitScore > 0)
+                canvas.drawText(core.sLastScore, core.lastX, core.lastY, paintLastScore);
+
             core.run(); //tell the core to process the latest information
-            float fTilt = (float)core.getMuseSTSTilt();
-            Paint paint = new Paint();
-            dTarget.setBounds((int)core.getTargetLeft(), (int)core.getTargetTop(), (int)core.getTargetLeft() + 250,(int)core.getTargetTop() + 250 );
+            dTarget.setBounds((int) core.getTargetLeft(), (int) core.getTargetTop(), (int) core.getTargetLeft() + 250,(int)core.getTargetTop() + 250 );
             dTarget.draw(canvas);
             dCrosshair.setBounds((int)core.getGunLeft(), (int)core.getGunTop(), (int)core.getGunLeft()+250, (int)core.getGunTop()+250);
             dCrosshair.draw(canvas);

@@ -4,6 +4,7 @@ package com.interaxon.test.libmuse; /**
 
 import java.util.*;
 import java.lang.System;
+import java.lang.String;
 import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.locks.Lock;
 import android.graphics.Rect;
@@ -121,15 +122,18 @@ public class core_t {
     private boolean bCurrentlyClenched = false;
     private double dLastHitDistance = 0;
     private long lLastClenchTime = 0;
-    private double dTotalScore = 0;
     private Target target;
     Rect rScreen;
 
     //public members
     public boolean bShotResultWaiting = false;
-    public long lLastHitScore;
+    public long lLastHitScore = -1;
     public boolean bGameOver = false;
     public long lGameTimeRemaining = 60000;
+    public String sLastScore;
+    public long lastX = -1;
+    public long lastY = -1;
+    public long lTotalScore = 0;
 
     public core_t(Rect rScreenIn, Rect rTarget)
     {
@@ -144,13 +148,14 @@ public class core_t {
     public void run()
     {
         long lCurrentSystemTime = System.currentTimeMillis();
-        if(lCurrentSystemTime - lGameStartTime > iGameTimeSeconds * 1000)
+        lGameTimeRemaining = (iGameTimeSeconds * 1000) - (lCurrentSystemTime - lGameStartTime);
+        if(lGameTimeRemaining < 0)
             bGameOver = true;
 
         if(bGameOver)
 
 
-        if(bCurrentlyClenched && (lCurrentSystemTime - lLastClenchTime) > 1000) {
+        if(bCurrentlyClenched && (lCurrentSystemTime - lLastClenchTime) > 300) {
             muse.bJawClench = false;
             bCurrentlyClenched = false;
         }
@@ -209,7 +214,10 @@ public class core_t {
             {
                 dLastHitDistance = dDistanceFromCenter;
                 lLastHitScore = Math.round(((target.width / 2) - dLastHitDistance) * 10);
-                dTotalScore += lLastHitScore;
+                lTotalScore += lLastHitScore;
+                sLastScore = String.valueOf(lLastHitScore);
+                lastX = gun.getiAimPointX();
+                lastY = gun.getiAimPointY();
                 target.randomlySpawnInRect();
             }
             else
@@ -257,12 +265,12 @@ public class core_t {
 
         if(gun.iLeft < 0)
             gun.iLeft = 0;
-        if(gun.iLeft > rScreen.right)
-            gun.iLeft = rScreen.right;
+        if(gun.iLeft + 250 > rScreen.right)
+            gun.iLeft = rScreen.right - 250;
         if(gun.iTop < 0)
             gun.iTop = 0;
-        if(gun.iTop > rScreen.bottom)
-            gun.iTop = rScreen.bottom;
+        if(gun.iTop + 250 > rScreen.bottom)
+            gun.iTop = rScreen.bottom - 250;
 
     }
     private double getRadianFromPercentage(double dPercentage)

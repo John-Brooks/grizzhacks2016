@@ -199,7 +199,6 @@ public class MainActivity extends Activity implements OnClickListener {
                         TextView xvalue = (TextView) findViewById(R.id.xValue);
                         TextView acc_y = (TextView) findViewById(R.id.acc_y);
                         TextView acc_z = (TextView) findViewById(R.id.acc_z);
-                        TextView yvalue = (TextView) findViewById(R.id.yValue);
 
                         if(tag.equals("main")) {
                             acc_x.setText(String.format(
@@ -212,12 +211,11 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
                         if (tag.equals("gamemode")){
-                            yvalue.setText(String.format(
-                                    "%6.2f", data.get(Accelerometer.LEFT_RIGHT.ordinal())));
-                            xvalue.setText(String.format(
-                                    "%6.2f", data.get(Accelerometer.FORWARD_BACKWARD.ordinal())));
+
                             if(customview != null) {
                                 if (customview.core != null) {
+                                    xvalue.setText(String.format(
+                                            "%d", customview.core.lTotalScore ));
                                     customview.core.updateMuseFBTilt(data.get(Accelerometer.FORWARD_BACKWARD.ordinal()));
                                     customview.core.updateMuseSTSTilt(data.get(Accelerometer.LEFT_RIGHT.ordinal()));
                                     customview.postInvalidate();
