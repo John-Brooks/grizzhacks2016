@@ -23,16 +23,21 @@ class Gun_t{
         int y = 0;
         iTop = y;
         iLeft = x;
-        iAimPointX = x + iPointOffsetX;
-        iAimPointY = y + iPointOffsetY;
+        iAimPointX = 125;
+        iAimPointY = 125;
     }
     void Move(long x, long y)
     {
-        iAimPointX += x;
-        iAimPointY += y;
-
         iLeft += x;
         iTop += y;
+    }
+    int getiAimPointX()
+    {
+        return iLeft + 125;
+    }
+    int getiAimPointY()
+    {
+        return iTop + 125;
     }
 
 };
@@ -91,6 +96,8 @@ class Target{
         Random rand = new Random();
         top = rand.nextInt( rWindow.bottom - height );
         left = rand.nextInt( rWindow.right - width);
+        centerpointx = left + 125;
+        centerpointy = top + 125;
     }
 
 
@@ -136,8 +143,10 @@ public class core_t {
     public void run()
     {
         long lCurrentSystemTime = System.currentTimeMillis();
-        if(bCurrentlyClenched && (lCurrentSystemTime - lLastClenchTime) > 1000)
+        if(bCurrentlyClenched && (lCurrentSystemTime - lLastClenchTime) > 1000) {
+            muse.bJawClench = false;
             bCurrentlyClenched = false;
+        }
         checkForGunShot();
         updateGunPosition(lLastUpdateTime, lCurrentSystemTime);
     }
@@ -187,13 +196,14 @@ public class core_t {
         if(!bCurrentlyClenched && muse.bJawClench)
         {
             bShotResultWaiting = true;
-            double dDistanceFromCenter = target.getHitDistance(gun.iAimPointX,gun.iAimPointY);
+            double dDistanceFromCenter = target.getHitDistance(gun.getiAimPointX(),gun.getiAimPointY());
 
             if(dDistanceFromCenter > 0)
             {
                 dLastHitDistance = dDistanceFromCenter;
                 lLastHitScore = Math.round(((target.width / 2) - dLastHitDistance) * 10);
                 dTotalScore += lLastHitScore;
+                target.randomlySpawnInRect();
             }
             else
             {
