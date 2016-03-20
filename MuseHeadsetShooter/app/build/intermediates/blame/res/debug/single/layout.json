@@ -1,15 +1,7 @@
 [
     {
-        "merged": "C:\\TestLibMuseAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "C:\\TestLibMuseAndroid\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
         "merged": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_game.xml",
         "source": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\layout\\activity_game.xml"
-    },
-    {
-        "merged": "C:\\TestLibMuseAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_game.xml",
-        "source": "C:\\TestLibMuseAndroid\\app\\src\\main\\res\\layout\\activity_game.xml"
     },
     {
         "merged": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",

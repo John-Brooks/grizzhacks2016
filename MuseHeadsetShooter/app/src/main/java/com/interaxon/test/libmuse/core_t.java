@@ -99,13 +99,13 @@ class Target{
 
 public class core_t {
     //Constants
-    final static double FBTILTCONST = 1.0;
-    final static double STSTILTCONST = 1.0;
+    final static double FBTILTCONST = .00001;
+    final static double STSTILTCONST = .00001;
     final static int FIGURE8PERIOD = 4000;
     final static int iGameTimeSeconds = 60;
 
     //objects
-    private Muse_t muse;
+    public Muse_t muse;
     private Gun_t gun;
 
     //private members
@@ -156,6 +156,20 @@ public class core_t {
         muse.dConcentration = dConcentration;
     }
 
+    public double getMuseSTSTilt()
+    {
+        return muse.dSTSTilt;
+    }
+
+    public long getGunLeft()
+    {
+        return gun.iLeft;
+    }
+    public long getGunTop()
+    {
+        return gun.iTop;
+    }
+
     private boolean checkForGunShot()
     {
         if(!bCurrentlyClenched && muse.bJawClench)
@@ -188,7 +202,7 @@ public class core_t {
     private void updateGunPosition(long lLastTime, long lTimeNow)
     {
         //***************Figure 8 Logic (Sway)**********************
-        double dRadius = 5.0;
+        /*double dRadius = 5.0;
 
         double dCurrentPositionInPeriod = (lLastTime % FIGURE8PERIOD) / FIGURE8PERIOD;
         double dLastPositionInPeriod = (lTimeNow % FIGURE8PERIOD) / FIGURE8PERIOD;
@@ -202,10 +216,10 @@ public class core_t {
         dOldX = Math.cos(dLastTimePosAsRadian) * (dRadius * muse.dConcentration);
 
         dNewY = Math.sin(dThisTimePosAsRadian) * (dRadius * muse.dConcentration);
-        dOldY = Math.sin(dLastTimePosAsRadian) * (dRadius * muse.dConcentration);
+        dOldY = Math.sin(dLastTimePosAsRadian) * (dRadius * muse.dConcentration);*/
 
-        double swayXTranslation = dNewX - dOldX;
-        double swayYTranslation = dNewY - dOldY;
+        double swayXTranslation = 0;//dNewX - dOldX;
+        double swayYTranslation = 0;//dNewY - dOldY;
 
         //***************Accelerometer Logic**********************
         long lTimeDifference = lTimeNow - lLastTime;
@@ -215,6 +229,15 @@ public class core_t {
         //***************Apply the change**********************
 
         gun.Move(Math.round(swayXTranslation + accelXTranslation), Math.round(swayYTranslation + accelYTranslation));
+
+        if(gun.iLeft < 0)
+            gun.iLeft = 0;
+        if(gun.iLeft > rScreen.right)
+            gun.iLeft = rScreen.right;
+        if(gun.iTop < 0)
+            gun.iTop = 0;
+        if(gun.iTop > rScreen.bottom)
+            gun.iTop = rScreen.bottom;
 
     }
     private double getRadianFromPercentage(double dPercentage)

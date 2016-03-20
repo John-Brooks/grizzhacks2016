@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\TestLibMuseAndroid\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
-        "source": "C:\\TestLibMuseAndroid\\app\\src\\main\\res\\menu\\main.xml"
-    },
-    {
         "merged": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\menu\\main.xml"
     }
