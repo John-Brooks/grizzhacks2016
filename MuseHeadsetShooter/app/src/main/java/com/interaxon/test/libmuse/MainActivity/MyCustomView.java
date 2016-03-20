@@ -2,11 +2,15 @@ package com.interaxon.test.libmuse.MainActivity;
 
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
 import android.graphics.*;
 
+import com.interaxon.test.libmuse.R;
 import com.interaxon.test.libmuse.core_t;
 
 
@@ -17,6 +21,10 @@ public class MyCustomView extends View {
     public core_t core;
     boolean bFirstDraw = true;
     private Canvas offscreen;
+    Drawable dCrosshair;
+    Drawable dTarget;
+    Bitmap bCrosshair;
+
 
     public MyCustomView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -39,16 +47,24 @@ public class MyCustomView extends View {
             if(bFirstDraw)
             {
                 Rect rView = new Rect(0, 0, getWidth(),getHeight() );
-                Rect rTarget = new Rect(0, 0, 100,100);
+                Rect rTarget = new Rect(0, 0, 250,250);
                 core = new core_t(rView, rTarget);
+
+                Resources res = getResources();
+                dCrosshair = res.getDrawable(R.drawable.crosshair);
+                dTarget = res.getDrawable(R.drawable.target);
+
                 bFirstDraw = false;
+
             }
 
             core.run(); //tell the core to process the latest information
             float fTilt = (float)core.getMuseSTSTilt();
             Paint paint = new Paint();
-            canvas.drawCircle(core.getGunLeft(), core.getGunTop(), 50,paint);
-
+            dTarget.setBounds((int)core.getTargetLeft(), (int)core.getTargetTop(), (int)core.getTargetLeft() + 250,(int)core.getTargetTop() + 250 );
+            dTarget.draw(canvas);
+            dCrosshair.setBounds((int)core.getGunLeft(), (int)core.getGunTop(), (int)core.getGunLeft()+250, (int)core.getGunTop()+250);
+            dCrosshair.draw(canvas);
         }
     }
     @Override

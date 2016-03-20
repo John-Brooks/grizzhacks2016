@@ -165,6 +165,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         fileWriter.flush();
                     break;
                 default:
+                    int i = 0;
                     break;
 
 
@@ -174,8 +175,15 @@ public class MainActivity extends Activity implements OnClickListener {
 
         @Override
         public void receiveMuseArtifactPacket(MuseArtifactPacket p) {
-            if (p.getHeadbandOn() && p.getBlink()) {
-                Log.i("Artifacts", "blink");
+            if(p.getHeadbandOn() && p.getJawClench())
+            {
+                if(customview != null)
+                {
+                    if(customview.core != null)
+                    {
+                        customview.core.updateMuseJawClench(true);
+                    }
+                }
             }
         }
 
@@ -267,6 +275,22 @@ public class MainActivity extends Activity implements OnClickListener {
                                     "%6.2f", data.get(Eeg.FP2.ordinal())));
                             elem4.setText(String.format(
                                     "%6.2f", data.get(Eeg.TP10.ordinal())));
+
+                        }
+                        double Con1 = data.get(Eeg.TP9.ordinal());
+                        double Con2 = data.get(Eeg.FP1.ordinal());
+                        double Con3 = data.get(Eeg.FP2.ordinal());
+                        double Con4 = data.get(Eeg.TP10.ordinal());
+
+
+                        double concentration = Con3;
+
+                        if(customview != null)
+                        {
+                            if(customview.core != null)
+                            {
+                                customview.core.updateMuseConcentration(concentration);
+                            }
                         }
                     }
                 });

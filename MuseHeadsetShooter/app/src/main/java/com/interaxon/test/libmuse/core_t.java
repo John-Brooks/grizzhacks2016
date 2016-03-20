@@ -113,6 +113,7 @@ public class core_t {
     private long lGameStartTime = 0;
     private boolean bCurrentlyClenched = false;
     private double dLastHitDistance = 0;
+    private long lLastClenchTime = 0;
     private double dTotalScore = 0;
     private Target target;
     Rect rScreen;
@@ -135,6 +136,8 @@ public class core_t {
     public void run()
     {
         long lCurrentSystemTime = System.currentTimeMillis();
+        if(bCurrentlyClenched && (lCurrentSystemTime - lLastClenchTime) > 1000)
+            bCurrentlyClenched = false;
         checkForGunShot();
         updateGunPosition(lLastUpdateTime, lCurrentSystemTime);
     }
@@ -170,6 +173,15 @@ public class core_t {
         return gun.iTop;
     }
 
+    public long getTargetTop()
+    {
+        return target.top;
+    }
+    public long getTargetLeft()
+    {
+        return target.left;
+    }
+
     private boolean checkForGunShot()
     {
         if(!bCurrentlyClenched && muse.bJawClench)
@@ -192,17 +204,13 @@ public class core_t {
             bCurrentlyClenched = true;
             return true;
         }
-        if(bCurrentlyClenched && !muse.bJawClench)
-        {
-            //reset trigger
-            bCurrentlyClenched = false;
-        }
         return false;
     }
     private void updateGunPosition(long lLastTime, long lTimeNow)
     {
-        //***************Figure 8 Logic (Sway)**********************
-        /*double dRadius = 5.0;
+        //***************Figure 8 Logic (Sway)*********************
+
+        double dRadius = 5.0;
 
         double dCurrentPositionInPeriod = (lLastTime % FIGURE8PERIOD) / FIGURE8PERIOD;
         double dLastPositionInPeriod = (lTimeNow % FIGURE8PERIOD) / FIGURE8PERIOD;
@@ -216,10 +224,10 @@ public class core_t {
         dOldX = Math.cos(dLastTimePosAsRadian) * (dRadius * muse.dConcentration);
 
         dNewY = Math.sin(dThisTimePosAsRadian) * (dRadius * muse.dConcentration);
-        dOldY = Math.sin(dLastTimePosAsRadian) * (dRadius * muse.dConcentration);*/
+        dOldY = Math.sin(dLastTimePosAsRadian) * (dRadius * muse.dConcentration);
 
-        double swayXTranslation = 0;//dNewX - dOldX;
-        double swayYTranslation = 0;//dNewY - dOldY;
+        double swayXTranslation = dNewX - dOldX;
+        double swayYTranslation = dNewY - dOldY;
 
         //***************Accelerometer Logic**********************
         long lTimeDifference = lTimeNow - lLastTime;

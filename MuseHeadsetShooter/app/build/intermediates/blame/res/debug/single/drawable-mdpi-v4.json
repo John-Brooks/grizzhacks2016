@@ -2,5 +2,17 @@
     {
         "merged": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
         "source": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\crosshair.png",
+        "source": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\drawable-mdpi\\crosshair.png"
+    },
+    {
+        "merged": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\target.png",
+        "source": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\drawable-mdpi\\target.png"
+    },
+    {
+        "merged": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\mindbullets.png",
+        "source": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\drawable-mdpi\\mindbullets.png"
     }
 ]
