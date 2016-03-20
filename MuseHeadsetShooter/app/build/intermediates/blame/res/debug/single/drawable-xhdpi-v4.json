@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\Johnson\\Documents\\GitHub\\grizzhacks2016\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
-        "source": "C:\\Users\\Johnson\\Documents\\GitHub\\grizzhacks2016\\MuseHeadsetShooter\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
         "source": "C:\\GrizzHacks\\MuseHeadsetShooter\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
     },
